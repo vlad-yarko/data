@@ -1,7 +1,13 @@
-import numpy as np
+from __future__ import annotations
+import re
+from typing import List, Iterable
+
+_WORD = re.compile(r"[A-Za-z0-9_]+")
+
+def normalize(text: str) -> str:
+    return " ".join(text.strip().lower().split())
+
+def words(text: str) -> List[str]:
+    return _WORD.findall(normalize(text))
 
 
-array = np.zeros((2, 3), dtype=int)
-
-array = np.ones((2, 2, 2))
-print(array)
